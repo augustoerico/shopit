@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="span12">
+        <ul class="messages">
+            {% for item in products %}
+            <li>
+                <h3>{{ item.name }}</h3>
+                <p>{{ item.description }}</p>
+                <p> - {{item.price}}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="span12">
+        <form method="POST" action="/">
+                {% csrf-field %}
+                <p>
+                    Name:
+                    <input class="form-control"
+                           type="text"
+                           name="name"
+                           value="{{name}}" />
+                </p>
+                {% if errors.name %}
+                <div class="alert alert-danger">{{errors.name|join}}</div>
+                {% endif %}
+                <p>
+                    Description:
+                <textarea class="form-control"
+                          rows="4"
+                          cols="50"
+                          name="description">{{ description }}</textarea>
+                </p>
+                {% if errors.message %}
+                <div class="alert alert-danger">{{errors.message|join}}</div>
+                {% endif %}
+                <p>
+                    Price:
+                    <input type="number"
+                           name="price"
+                           value="{{ price }}"/>
+                </p>
+                <input type="submit" class="btn btn-primary" value="create" />
+        </form>
+    </div>
+</div>
+{% endblock %}

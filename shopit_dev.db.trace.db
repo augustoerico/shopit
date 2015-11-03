@@ -1,0 +1,11 @@
+2015-11-02 13:47:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "PRODUCT" not found; SQL statement:
+SELECT * from product [42102-188]
+2015-11-02 23:23:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "PRODUCT" not found; SQL statement:
+SELECT * from product [42102-188]
+2015-11-02 23:25:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "PRODUCT" not found; SQL statement:
+INSERT INTO product
+(name, description, price)
+VALUES (?, ?, ?) [42102-188]
