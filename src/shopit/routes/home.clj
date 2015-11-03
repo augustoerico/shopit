@@ -33,8 +33,12 @@
       (db/create-product! params)
       (redirect "/"))))
 
+(defn products []
+  {:body {:products (db/list-products)}})
+
 (defroutes home-routes
   (GET "/" request (home-page request))
   (POST "/" request (create-product! request))
-  (GET "/about" [] (about-page)))
+  (GET "/about" [] (about-page))
+  (GET "/products" [] (products)))
 
